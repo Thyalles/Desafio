@@ -18,7 +18,6 @@ O modelo foi projetado para atender aos seguintes cenários:
 
 ## **Índices**
 
-Para otimizar o desempenho das consultas, foram criados os seguintes índices:
+Para otimizar o desempenho das consultas, foi criado o seguinte índice:
 
--   `controle.benchmark_id`: Para buscas rápidas de controles por benchmark.
 -   `state_history.(controle_id, changed_at)`: Para buscas e ordenações eficientes do histórico de estado, permitindo encontrar o estado atual, por intervalo ou por data hora.
