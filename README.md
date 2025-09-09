@@ -1,12 +1,13 @@
-# 📊 Desafios de Banco de Dados --- Benchmarks
+# 📊 Desafios de Banco de Dados --- API REST
 
-Este repositório contém dois desafios relacionados a modelagem de banco de dados e consultas sobre **Benchmarks, Controles e Histórico de Estados**.
+Este repositório contém dois desafios. O primeiro seria relacionado a modelagem de banco de dados e consultas sobre **Benchmarks, Controles e Histórico de Estados**.\
+O segundo seria uma API REST simples, desenvolvida para o desafio de criação de uma API de leitura de usuários em um arquivo JSON.
 
 ------------------------------------------------------------------------
 
 ## 📊 Desafio de Banco de Dados --- Benchmarks (Estado Atual e Histórico)
 
-## 📌 Mini-mundo
+### 📌 Mini-mundo
 
 -   **Benchmark** (`id`, `name`) possui vários **Controles**.\
 -   **Controle** (`id`, `name`, `description`) pertence a um **Benchmark** e possui um estado (`ok | alarm`).\
