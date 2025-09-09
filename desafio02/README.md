@@ -28,7 +28,7 @@ Siga os passos abaixo para configurar e rodar a API localmente:
 2.  Instale as dependências do projeto:
 
     ``` bash
-    npm install
+    npm install fastify @fastify/cors dotenv
     ```
 
 3.  Se necessário, crie um arquivo de variáveis de ambiente. Na raiz do projeto, crie um arquivo chamado `.env` e adicione a porta do servidor:
@@ -98,3 +98,4 @@ GET http://localhost:3000/users/5
 
 -   `200 OK`: O usuário foi encontrado e retornado.\
 -   `404 Not Found`: O ID do usuário não foi encontrado.
+
