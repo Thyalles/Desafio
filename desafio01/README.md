@@ -1,23 +1,32 @@
-# Projeto: Benchmarks - Estado Atual e Histórico
+# 📊 Desafio de Banco de Dados --- Benchmarks (Estado Atual e Histórico)
 
-Este projeto consiste em um modelo de banco de dados para gerenciar benchmarks, seus controles e o histórico de estado de cada um.
+## 📌 Mini-mundo
 
-## **Modelo de Dados**
+-   **Benchmark** (`id`, `name`) possui vários **Controles**.\
+-   **Controle** (`id`, `name`, `description`) pertence a um **Benchmark** e possui um estado (`ok | alarm`).\
+-   É possível registrar mudanças de estado para reconstruir o histórico.
 
-O modelo foi projetado para atender aos seguintes cenários:
+## 📂 Cenários
 
-- **Listar o estado atual**: Obter o benchmark e seus controles, com o estado mais recente de cada um.
-- **Consultar por intervalo**: Listar as mudanças de estado dos controles em um período de tempo definido.
-- **Consultar por data/hora**: Encontrar o estado de um controle em uma data e hora específicas.
+1.  **Q1** --- Listar Benchmark com seus Controles e o estado **atual**.\
+2.  **Q2** --- Listar Benchmark com seus Controles e as mudanças de estado em um **intervalo de tempo**.\
+3.  **Q3** --- Obter Benchmark com seus Controles e o estado em uma **data/hora X**.
 
-## **Tabelas**
+## 🗄️ Modelo Conceitual
 
-1.  **`BENCHMARK`**: Gerencia as entidades de benchmark.
-2.  **`CONTROLE`**: Gerencia os controles, associando-os a um benchmark.
-3.  **`STATE_HISTORY`**: Armazena o registro de cada mudança de estado para cada controle, com data e hora.
+Entidades principais:\
+- `Benchmark`\
+- `Controle`\
+- `Account` (para associação)\
+- `State_History` (para histórico dos estados)
 
-## **Índices**
+Relacionamentos:\
+- `Benchmark` 1:N `Controle`\
+- `Controle` 1:N `State_History`\
+- `Account` N:N `Benchmark`
 
-Para otimizar o desempenho das consultas, foi criado o seguinte índice:
+## ⚡ Índices Sugeridos
 
--   `state_history.(controle_id, changed_at)`: Para buscas e ordenações eficientes do histórico de estado, permitindo encontrar o estado atual, por intervalo ou por data hora.
+-   **`ACCOUNT_ID`** (para consultas por conta).\
+-   **`BENCHMARK_ID`** (para buscas de Benchmarks e seus Controles).\
+-   **`(ACCOUNT_ID, CONTROLE_ID, CHANGED_AT)`** (para recuperar estados de forma eficiente, ordenados por data/hora).
